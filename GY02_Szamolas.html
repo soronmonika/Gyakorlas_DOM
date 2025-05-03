@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szöveg hossza</title>
+</head>
+
+<body>
+    <!--Az űrlap mezőből beolvasod a szöveget, kiszámolod a hosszát, ellenőrzöd a szóközt, és DOM-on keresztül visszaírod
+    két külön bekezdésbe – pontosan ez volt a cél.-->
+    <input type="text" id="szovegInput" placeholder="Szöveg helye">
+    <button onclick="szamolas()">Számolás</button>
+    <p id="karakter"></p>
+    <p id="szokoz"></p>
+    <p id="szokozDb"></p>
+    <script>
+        function szamolas() {
+            let szoveg = document.getElementById("szovegInput").value;// ez adja vissza a beírt szöveget. KIOLVASOM
+            let hossz = szoveg.length;//megszámolja, hány karakterből áll.
+            let szoKoz = szoveg.includes(" ")//megmondja van-e benne szóköz
+            let szokozSzoveg = szokoz ? "Igen" : "Nem";//Ha szebben szeretnéd írni a szóközös választ
+            let szokozDb = szoveg.split(" ").length - 1; <!--Számold meg, hány szóköz van a szövegben, azáltal, hogy feldarabolod a szóközöknél, majd az elemek számából kivonsz 1-et.-->
+            document.getElementById("karakter").innerHTML = `A szöveg ${hossz} karakter hosszú.`//kiírja a weboldalra, hogy mennyi a hossza és, hogy
+            document.getElementById("szokoz").innerHTML = `A szöveg tartalmaz szóközt? ${szokozSzoveg}`//van-e benne szóköz
+            document.getElementById("szokozDb").innerHTML = `A szöveg ${szokozDb} szóközt tartalmaz.`//MEGJELENÍTEM
+        }
+    </script>
+</body>
+
+</html>

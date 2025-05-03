@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vezetéknév és Keresztnév összefűzése</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Vezetéknév" id="vezNev">
+    <input type="text" placeholder="Keresztnév" id="kerNev">
+    <button onclick="Neve()">Gomb</button>
+    <p id="Fuz"></p>
+    <script>
+        function nagyKezdoBetu(szo) {
+            return szo.charAt(0).toUpperCase() + szo.slice(1).toLowerCase();
+        }
+        function Neve() {
+            let Vnev = document.getElementById("vezNev").value.trim(); </*A .trim egy beépített JavaScript szövegfüggvény, amely eltávolítja a szóközöket a szöveg elejéről és végéről. */
+                let Knev= document.getElementById("kerNev").value.trim(); < /*A.trim segítségével megtisztítjuk az adatot a felesleges karakterektől.*/
+                    if (Vnev == "" || Knev == "") {
+                document.getElementById("Fuz").innerHTML = "Kérlek, töltsd ki minkét mezőt!";
+            }
+            else {
+                let teljesNev = `${nagyKezdoBetu(Vnev)}  ${nagyKezdoBetu(Knev)}`;
+                document.getElementById("Fuz").innerHTML = `A teljes neve: ${teljesNev}`;
+            }
+        }
+
+        /*szo.charAt(0)	Kiválasztja a szó első betűjét
+              .toUpperCase()	Nagybetűssé alakítja az első betűt
+          szo.slice(1)	Kivágja az összes többi betűt az első után(a szó 1. indexétől a végéig)
+              .toLowerCase()	Kisbetűssé alakítja a szó többi részét
+                  + Összefűzi a nagy kezdőbetűt és a kisbetűs maradékot*/
+
+        //MŰKÖDŐ:
+        function nagyKezdoBetu(szo) {
+            return szo.charAt(0).toUpperCase() + szo.slice(1).toLowerCase();
+        }
+        function Neve() {
+            let Vnev = document.getElementById("vezNev").value.trim();
+            let Knev = document.getElementById("kerNev").value.trim();
+
+            if (Vnev === "" || Knev === "") {
+                document.getElementById("Fuz").innerHTML = "Kérlek, töltsd ki mindkét mezőt!";
+            } else {
+                let teljesNev = `${nagyKezdoBetu(Vnev)} ${nagyKezdoBetu(Knev)}`;
+                document.getElementById("Fuz").innerHTML = `A teljes neve: ${teljesNev}`;
+            }
+        }
+    </script>
+</body>
+
+</html>

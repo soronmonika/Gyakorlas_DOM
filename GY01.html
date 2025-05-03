@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Modell</title>
+</head>
+
+<body>
+    <h1>Háromszög terület</h1>
+    <input type="number" id="haromszogA" placeholder="a oldal hossza">
+    <input type="number" id="haromszogB" placeholder="b oldal hossza">
+    <input type="number" id="haromszogC" placeholder="c oldal hossza">
+    <button onclick="Haromszogszamitas()">Számítás</button>
+    <p id="kerulete"></p>
+
+    <h1>Háromszög kerülete</h1>
+    <input type="number" id="A" placeholder="a oldal">
+    <input type="number" id="B" placeholder="b oldal">
+    <input type="number" id="C" placeholder="c oldal">
+    <button onclick="Haromszogterulete()">Számítás</button>
+    <p id="terulet"></p>
+    <script>
+        function Haromszogszamitas() {
+            let aOldal = Number(document.getElementById("haromszogA").value);
+            let bOldal = Number(document.getElementById("haromszogB").value);
+            let cOldal = Number(document.getElementById("haromszogC").value);
+            let Kerulet = aOldal + bOldal + cOldal;
+            document.getElementById("kerulete").innerHTML = `A ${aOldal} és ${bOldal} és ${cOldal} egységnyi oldalú háromszög kerülete: ${Kerulet}`;
+        }
+
+        function Haromszogterulete() {
+            let Aoldal = Number(documen.getElementById("A").value);
+            let Boldal = Number(documen.getElementById("B").value);
+            let Coldal = Number(documen.getElementById("C").value);
+            let Terulet = (Aoldal + Boldal + Coldal) / 2;
+            document.getElementById("terulet").innerHTML = `Az ${Aoldal} és ${Boldal} és ${Coldal} területe: ${Terulet}`;
+        }
+    </script>
+</body>
+
+</html>
