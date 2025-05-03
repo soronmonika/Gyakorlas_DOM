@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szám növelése gombnyomásra</title>
+</head>
+
+<body>
+    <p id="szam">0</p>
+    <button id="novelGomb">Növel</button>
+    <script>
+        let szamElem = document.getElementById("szam");//Ez kiválasztja a <p> elemet a "szam" azonosítóval, és eltárolja a szamElem változóban.
+        let novelGomb = document.getElementById("novelGomb")//Ez kiválasztja a gombot, amit "novelGomb"-nak neveztünk el.
+        novelGomb.addEventListener("click", function () {//Ez azt mondja: ha a gombot megnyomják, akkor fusson le a function blokkban lévő kód.
+            let aktualis = Number(szamElem.innerHTML);//Lekérdezzük a <p> szöveges tartalmát (pl. "0") és számmá alakítjuk a Number() függvénnyel. majd megjelenítjük(innerHTML)
+            aktualis++;//Megnöveljük eggyel az értéket.
+            szamElem.innerHTML = aktualis;//Visszaírjuk az új értéket a <p> elembe, így a böngészőben is frissül a szám.
+        });
+    </script>
+</body>
+
+</html>

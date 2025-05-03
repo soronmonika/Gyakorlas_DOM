@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Csökkentő számláló</title>
+</head>
+<p id="szam">100</p>
+<button id="csokkentGomb">Csökkent!</button>
+<button id="visszaAllit">Visszaállítás</button>
+<script>
+    let szamElem = document.getElementById("szam");
+    let CsokkentGomb = document.getElementById("csokkentGomb");
+    let VisszaAllit = document.getElementById("visszaAllit");
+    csokkentGomb.addEventListener("click", Csokkent);
+    function Csokkent() {
+        let akt = Number(szamElem.innerHTML);
+        akt--;
+        szamElem.innerHTML = akt;
+    }
+    VisszaAllit.addEventListener("click", visszaAllito);
+    function visszaAllito() {
+        szamElem.innerHTML = 100;//A szamElem.innerHTML = 100; sor azt csinálja, hogy azt az elemet, amit a szamElem változóban tárolsz (ez a <p id="szam">...</p> elem), újraírja, vagyis a tartalmát lecseréli 100-ra.
+    };
+</script>
+
+<body>
+
+</body>
+
+</html>
