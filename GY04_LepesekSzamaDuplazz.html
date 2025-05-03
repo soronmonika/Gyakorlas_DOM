@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplázó számláló</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="szam">1</p>
+    <button id="duplaz">Dupláz!</button>
+    <button id="visszaAllit">Visszaállítás</button>
+    <p id="lepesek">Lépések száma: 0</p>
+    <script>
+        let szamElem = document.getElementById("szam");//kiolvassa a "szam"ot
+        let lepesElem = document.getElementById("lepesek");//kiolvassa "lepeseket"
+        let lepesSzam = 0;//alapból 0
+        duplaz.addEventListener("click", Duplaz);//click eseményre van állítva a duplaz függvény
+        function Duplaz() {
+            let akt = Number(szamElem.innerHTML);//kiolvassa az aktuális számot
+            akt *= 2;//duplázza a számot
+            szamElem.innerHTML = akt;//kiiírja
+
+            lepesSzam++;//hozzá adja az előzőhöz
+            lepesElem.innerHTML = `Lépések száma: ${lepesSzam}`;//egy külön sorban megjelenik, hányszor nyomtad meg a „Dupláz!” gombot (azaz a lépések száma nő).
+        }
+        visszaAllit.addEventListener("click", visszaAllito);
+        function visszaAllito() {
+            szamElem.innerHTML = 1;//visszaállítja 1-re
+            lepesSzam = 0;//alapból 0
+            lepesElem.innerHTML = "Lépések száma: 0";//egy külön sorban megjelenik, hányszor nyomtad meg a „Dupláz!” gombot (azaz a lépések száma nő). kiírja
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.O.M. Háttér színező</title>
+</head>
+
+<body>
+    <script>
+
+        document.addEventListener("click", hatterSzinValtoztato);
+
+        function hatterSzinValtoztato() {
+            let red = Math.round(Math.random() * 255);
+            let green = Math.round(Math.random() * 255);
+            let blue = Math.round(Math.random() * 255);
+            //let newColor = `rgb(${red},${green},${blue})`;
+            let newColor = "rgb(" + red + "," + green + "," + blue + ")"; //Vagy így is lehet "összerakni a stringet!"
+            document.body.style.backgroundColor = newColor;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.O.M. Jelszó megjelenítő</title>
+</head>
+
+<body>
+    <form action="#">
+        <input type="text" id="jelszoMezo" value="Szeretem a programozást">
+        <input type="button" value="Elrejtes" id="megjelenito">
+    </form>
+
+    <script>
+        megjelenito.addEventListener("click", Lathatosag);
+
+        function Lathatosag() {
+            let allapot = jelszoMezo.getAttribute("type");
+            let gomb = document.querySelector("#megjelenito");
+            if (allapot == "text") {
+                jelszoMezo.setAttribute("type", "password");
+                gomb.value = "Jelszó megjelenítése";
+            }
+            else {
+                jelszoMezo.setAttribute("type", "text");
+                gomb.value = "Jelszó elrejtése";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
