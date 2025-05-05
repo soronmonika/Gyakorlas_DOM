@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Szelet Kalkulator</title>
+</head>
+
+<body>
+    <h1>1. Pizza szelet kalkulátor</h1>
+    <p>Kérj be egy számot: hány fő eszik a pizzából. </p>
+    <p>Egy ember 3 szeletet eszik átlagosan. Írd ki, összesen hány szelet pizzára
+        van szükség!</p>
+    <input type="number" id="szemely">
+    <p id="szelet"></p>
+    <script>
+        szemely.addEventListener("change", pizza);
+        function pizza() {
+            let szemely = document.getElementById("szemely").value;//kiolvasom
+            document.getElementById("szelet").innerHTML = `${szemely * 3} szelet pizzára van szükség`;//kiírom
+        }
+    </script>
+</body>
+
+</html>

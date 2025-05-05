@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyümölcslé adagoló</title>
+    <style>
+        body {
+            background-color: green;
+        }
+
+        img {
+            width: 400px;
+        }
+
+        div {
+            padding: 5px solid black;
+            margin: 0 auto;
+        }
+
+        input {
+            width: 35px;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>2. Gyümölcslé adagoló</h1>
+        <p>1 adag gyümölcslé 2 dl. </p>
+        <p>Kérd be, hány adag gyümölcslé kell, és számold ki:</p>
+        <ul>
+            <li>Adag: <input type="number" id="adag" min="0"> </li>
+            <li id="szukseg">Hány literre van szükség (2 dl * adag / 10):</li>
+            <li id="darab">Hány poharat tölthetsz meg, ha 2 dl-esek a poharak: </li>
+        </ul>
+        <img src="Gy00_képek/almalé.jpg" alt="">
+    </div>
+    <script>
+        adag.addEventListener("change", almale);
+        function almale() {
+            let adag = Number(document.getElementById("adag").value);
+            let liter = (2 * adag) / 10;
+            document.getElementById("szukseg").innerHTML = `Hány literre van szükség (2 dl * adag / 10): ${liter.toFixed(2)} liter.`;
+            document.getElementById("darab").innerHTML = `Hány poharat tölthetsz meg, ha 2 dl-esek a poharak: ${adag} pohár.`
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Autós fogyasztás kalkulátor</title>
+    <style>
+        body {
+            background-color: green;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 40px;
+        }
+
+        img {
+            float: right;
+            width: 1200px;
+        }
+
+        .alahuz {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>5. Autós fogyasztás kalkulátor</h1>
+    <img src="Gy00_képek/üzemanyag.webp" alt="">
+    <p class="alahuz">Add meg kérlek:</p>
+    <p>Hány km-t vezettél: <input type="number" id="levezetettKm" min="0"></p>
+    <p>Hány liter üzemanyagot használtál fel? <input type="number" id="uzemanyag" min="0"></p>
+
+    <ul>
+        <li id="atlagfogyasztas">Hány liter fogyott el 100 km-re vetítve: </li>
+        <li id="Elhasznaltbenzin">Ha 1 liter benzin 590 Ft, mennyi volt az út teljes költsége: </li>
+        <li id="Elhasznaltgazolaj">Ha 1 liter gázolaj 599 Ft, mennyi volt az út teljes költsége: </li>
+    </ul>
+    <p>Üzemanyag árát, én adom meg! Írd be a benzin árát: <input type="number" id="benzin" Ft></p>
+    <p id="benzinAr"></p>
+    <p>Üzemanyag árát, én adom meg! Írd be a gázolaj árát: <input type="number" id="gazolaj" Ft></p>
+    <p id="gazolajAr"></p>
+
+    <script>
+        levezetettKm.addEventListener("change", FogyasztasKalkulator);
+        uzemanyag.addEventListener("change", FogyasztasKalkulator);
+        benzin.addEventListener("change", FogyasztasKalkulator);
+        gazolaj.addEventListener("change", FogyasztasKalkulator);
+        function FogyasztasKalkulator() {
+            let levezetettkm = Number(document.getElementById("levezetettKm").value);
+            let uzemanyagFogyasztas = Number(document.getElementById("uzemanyag").value);
+            let atlagFogyasztasa = ((uzemanyagFogyasztas / levezetettkm) * 100).toFixed(2)
+            let benzinAra = Number(document.getElementById("benzin").value);
+            let gazolajAra = Number(document.getElementById("gazolaj").value);
+            document.getElementById("atlagfogyasztas").innerHTML = `Hány liter fogyott el 100 km-re vetítve: <b>${atlagFogyasztasa} L</b>.`;
+            document.getElementById("Elhasznaltbenzin").innerHTML = `Ha 1 liter benzin 590 Ft, mennyi volt az út teljes költsége: <b>${(atlagFogyasztasa * 590).toFixed(0)} Ft</b>.`
+            document.getElementById("Elhasznaltgazolaj").innerHTML = `Ha 1 liter gázolaj 590 Ft, mennyi volt az út teljes költsége: <b>${(atlagFogyasztasa * 599).toFixed(0)} Ft</b>.`
+            document.getElementById("benzinAr").innerHTML = `Ha 1 liter benzin ${benzinAra}Ft, az út teljes költsége: <b>${atlagFogyasztasa * benzinAra} Ft</b>.`
+            document.getElementById("gazolajAr").innerHTML = `Ha 1 liter gázolaj ${gazolajAra}Ft, az út teljes költsége: <b>${atlagFogyasztasa * gazolajAra} Ft</b>.`
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Villanyszámla becslő</title>
+    <style>
+        img {
+            float: right;
+        }
+
+        input {
+            width: 35px;
+        }
+
+        body {
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="Gy00_képek/villanyóra.jpg" alt="">
+    <h1>4. Villanyszámla becslő</h1>
+    <p>A felhasználó megadja, hány órát használ egy 60 wattos izzót naponta: <input type="number" id="IzzoHasznalat">
+    </p>
+    <ul>
+        <p>Számold ki:</p>
+
+        <li id="napi">Napi energiafogyasztás (Wh): </li>
+        <li id="havi">Havi fogyasztás (30 nappal számolva): </li>
+        <li id="kWh">Hány kWh az összes (Wh / 1000): </li>
+        <p>Ha 1 kWh = 40 Ft, mennyi lenne a becsült havi villanyszámla?</p>
+        <p id="becsult">Becsült villanyszámla: </p>
+    </ul>
+    <script>
+        IzzoHasznalat.addEventListener("change", VillanySzamlaBecslo);
+        function VillanySzamlaBecslo() {
+            let IzzoHasznalata = Number(document.getElementById("IzzoHasznalat").value)
+            let napiEnergia = IzzoHasznalata * 60;
+            let haviFogyasztas = napiEnergia * 30;
+            let OsszesKwH = haviFogyasztas / 1000;
+            let BecsultVillanySzamla = (OsszesKwH * 40).toFixed(0);
+            document.getElementById("napi").innerHTML = `Napi energiafogyasztás (Wh): ${napiEnergia} Wh.`;
+            document.getElementById("havi").innerHTML = `Havi fogyasztás (30 nappal számolva): ${haviFogyasztas} Wh.`;
+            document.getElementById("kWh").innerHTML = `Hány kWh az összes (Wh / 1000): ${OsszesKwH} kWh`;
+            document.getElementById("becsult").innerHTML = `Becsült villanyszámla: ${BecsultVillanySzamla} Ft.`;
+        }
+    </script>
+</body>
+
+</html>

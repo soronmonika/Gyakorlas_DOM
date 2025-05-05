@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalória Kalkulátor</title>
+    <style>
+        body {
+            background-color: gray;
+            background-size: cover;
+            color: brown
+        }
+
+        input {
+            width: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>3. Kalória kalkulátor</h1>
+    <p>1 km futás 60 kalóriát éget el. A felhasználó megadja, hány km-t futott. Számold ki: <input type="number" id="km"
+            min="1">km</p>
+    <ul>
+        <li id="osszesen">Mennyi kalóriát égetett el összesen:</li>
+        <li id="hamburger">Ha 500 kalória egy hamburger, akkor ez hány hamburger „ledolgozásának” felel meg: </li>
+        <li>napi kalória bevitel: <input type="number" id="napiKcal"></li>
+        <li id="maradekKcal">Ennyi kalóriát ehetsz még: </li>
+    </ul>
+    <img src="Gy00_képek/feherje-szenhidrat-zsir-700px.jpg" alt="">
+    <script>
+        km.addEventListener("change", futasKcal);
+        function futasKcal() {
+            let km = Number(document.getElementById("km").value);
+            let osszesenKcal = km * 60;
+            let napiKcal = Number(document.getElementById("napiKcal").value);
+            document.getElementById("osszesen").innerHTML = `Mennyi kalóriát égetett el összesen: ${osszesenKcal} kcal`;
+            document.getElementById("hamburger").innerHTML = `Ha 500 kalória egy hamburger, akkor ez hány hamburger „ledolgozásának” felel meg: ${(osszesenKcal / 500).toFixed(2)} hamburger.`;
+            document.getElementById("maradekKcal").innerHTML = `Ennyi kalóriát ehetsz még: ${(napiKcal - osszesenKcal).toFixed(2)} kcal`;
+        }
+    </script>
+</body>
+
+</html>
