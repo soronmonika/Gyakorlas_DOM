@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. Vízivás emlékeztető</title>
+    <style>
+        body {
+            background-color: aqua;
+            text-align: center;
+        }
+
+        .alaHuz {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        input {
+            width: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>6.feladat: Vízivás emlékeztető</h1>
+    <p>A felhasználó megadja, hány pohár vizet ivott meg ma.</p>
+    <p>Egy pohár 2 dl vizet jelent.</p>
+    <p class="alaHuz">Összesen hány pohár vizet ivott meg? <input type="number" id="Hanypohar"></p>
+    <p id="elfogyasztottMennyiseg">Ennyi liter vízet ittál meg: </p>
+    <p class="alaHuz">Még hány pohárral kellene meginnia, ha a napi ajánlott mennyiség 2 liter?</p>
+    <p id="szuksegesViz">Ennyi vizet kell még meginnod: </p>
+    <p id="elerted"></p>
+    <img src="Gy00_képek/viz-hatasai-tamasi.jpg" alt="">
+    <script>
+        Hanypohar.addEventListener("change", VizivasEmlekezteto);
+        function VizivasEmlekezteto() {
+            let Hanypohar = Number(document.getElementById("Hanypohar").value);
+            let elfogyasztottMennyisege = ((Hanypohar * 2) * 0.1).toFixed(2);
+            let szuksegesVizSzam = 2 - elfogyasztottMennyisege;
+            let szuksegesViz = szuksegesVizSzam.toFixed(2)
+            document.getElementById("elfogyasztottMennyiseg").innerHTML = `Ennyi liter vízet ittál meg: <b>${elfogyasztottMennyisege} Liter</b>`;
+            document.getElementById("szuksegesViz").innerHTML = `Ennyi vizet kell még meginnod: <b>${szuksegesViz} Liter</b>`;
+            if (szuksegesVizSzam <= 0) { //Korábban: --> ==2: Ne == 2-t ellenőrizz, hanem inkább <= 0, így elég rugalmas marad.
+                document.getElementById("elerted").innerHTML = `Remek! Megittad a napi mennyiséget! Gratulálok!`;
+            }
+        }
+    </script>
+</body>
+
+</html>
